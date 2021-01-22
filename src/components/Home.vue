@@ -3,7 +3,7 @@
     <Button :movies="this.movies" />
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="row">
             <div class="col-md-6" v-for="movie in movies" :key="movie.id">
               <Movie
@@ -18,13 +18,14 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
+        <Search :movies="this.movies" />
         <h2>Trier par genre</h2>
         <button
           v-on:click="getMoviesByGenre(18)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Action
@@ -32,9 +33,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(12)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Aventure
@@ -42,9 +43,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(16)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Animation
@@ -52,9 +53,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(35)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Comédie
@@ -62,9 +63,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(80)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Crime
@@ -72,9 +73,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(99)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Documentaire
@@ -82,9 +83,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(18)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Dramatique
@@ -92,9 +93,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(10751)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Familliale
@@ -102,9 +103,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(14)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Fantaisie
@@ -112,9 +113,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(36)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Historique
@@ -122,9 +123,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(27)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Horreur
@@ -132,9 +133,9 @@
         <br />
         <button
           v-on:click="getMoviesByGenre(10402)"
-          style="color: #41b883"
+          style="color: #fff"
           type="submit"
-          class="btn btn-light mb-2"
+          class="btn btn-secondary pull-right"
           value="Submit"
         >
           Musique
@@ -149,12 +150,14 @@
 import axios from "axios";
 import Movie from "./Movie.vue";
 import Button from "./Button.vue";
+import Search from "./Search.vue";
 
 export default {
   name: "home",
   components: {
     Movie,
     Button,
+    Search,
   },
   data() {
     return {
@@ -172,7 +175,8 @@ export default {
         .then((response) => {
           this.movies = response.data.results;
           console.log(this.movies);
-        });
+        })
+        .catch(error => console.log(error))
     },
   },
 };

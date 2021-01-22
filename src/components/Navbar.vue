@@ -33,7 +33,7 @@
           </li>
           <li class="nav-item">
             <router-link to="/search">
-              <button class="" aria-current="page">Rechercher par films</button>
+              <button class="" aria-current="page">Rechercher par titre</button>
             </router-link>
           </li>
         </ul>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+
 export default {
   name: "navbar",
 };

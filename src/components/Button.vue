@@ -2,30 +2,30 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <label for="title" class="form-check-label m-2">Trier par titre</label>
+        <label for="title" class="form-group-label m-2">Trier par titre</label>
         <input
           type="checkbox"
-          class="form-check-input m-2"
+          class="form-group-input m-2"
           id="title"
           name="single_select"
           ref="rolesSelected"
           @click="orderMoviesByTitle"
         />
 
-        <label for="title" class="form-check-label m-2">Trier par date</label>
+        <label for="title" class="form-group-label m-2">Trier par date</label>
         <input
           type="checkbox"
-          class="form-check-input m-2"
+          class="form-group-input m-2"
           id="title"
           name="single_select"
           ref="rolesSelected"
           @click="orderMoviesByDate"
         />
 
-        <label for="title" class="form-check-label m-2">Trier par notes</label>
+        <label for="title" class="form-group-label m-2">Trier par notes</label>
         <input
           type="checkbox"
-          class="form-check-input m-2"
+          class="form-group-input m-2"
           id="title"
           name="single_select"
           ref="rolesSelected"
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Button",
   props: ["movies"],
@@ -132,3 +133,21 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  label {
+    color: #fff;
+  }
+  
+  input {
+    border-radius: 10px;
+  }
+
+@media screen and (max-width: 991px) {
+  label {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+  }
+}
+</style>

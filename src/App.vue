@@ -33,21 +33,23 @@ export default {
   created: function () {
     axios
       .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=65a8344a59a4de14be662219b6d648cc&popularity.desc&page=1"
+        "https://api.themoviedb.org/3/discover/movie?api_key=65a8344a59a4de14be662219b6d648cc&popularity.desc&language=fr&page=1"
       )
       .then((response) => {
         this.movies = response.data.results;
-        console.log(this.movies);
+        console.log(this.movies)
+        .catch(error => console.log(error));
         axios
           .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=65a8344a59a4de14be662219b6d648cc&popularity.desc&page=2"
+        "https://api.themoviedb.org/3/discover/movie?api_key=65a8344a59a4de14be662219b6d648cc&popularity.desc&language=fr&page=2"
           )
           .then((response) => {
             response.data.results.forEach( movie => {
               this.movies.push(movie)
             })
             console.log(this.movies);
-          });
+          })
+          .catch(error => console.log(error))
       });
     },
   
