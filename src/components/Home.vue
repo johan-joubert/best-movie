@@ -1,20 +1,20 @@
 <template>
   <div class="container">
+    <Button :movies="this.movies" />
+
     <div class="row">
       <div class="col-md-8">
-
-        <Button :movies="this.movies" />
-
-        <div v-for="movie in movies" :key="movie.id">
-          <Movie
-            :movie = "movie"
-            :title="movie.title"
-            :poster_path="movie.poster_path"
-            :vote_average="movie.vote_average"
-            :overview="movie.overview"
-            :release_date="movie.release_date"
-            :include_video="movie.include_video"
-          />
+        <div class="row">
+            <div class="col-md-6" v-for="movie in movies" :key="movie.id">
+              <Movie
+                :movie="movie"
+                :title="movie.title"
+                :poster_path="movie.poster_path"
+                :vote_average="movie.vote_average"
+                :overview="movie.overview"
+                :release_date="movie.release_date"
+              />
+            </div>
         </div>
       </div>
 
@@ -158,7 +158,7 @@ export default {
   },
   data() {
     return {
-      query: '',
+      query: "",
     };
   },
   props: ["movies", "movie"],
@@ -166,7 +166,8 @@ export default {
     getMoviesByGenre(nbr) {
       axios
         .get(
-          "https://api.themoviedb.org/3/discover/movie?api_key=65a8344a59a4de14be662219b6d648cc&with_genres=" + nbr
+          "https://api.themoviedb.org/3/discover/movie?api_key=65a8344a59a4de14be662219b6d648cc&with_genres=" +
+            nbr
         )
         .then((response) => {
           this.movies = response.data.results;

@@ -30,7 +30,7 @@
           <div>
             <b-button v-b-modal.modal-1>Voir la bande annonce</b-button>
 
-            <b-modal id="modal-1" title="{{BootstrapVue}}">
+            <b-modal id="modal-1" v-bind:title="movie.title">
               <div>
                 <iframe
                   width="450"

@@ -50,3 +50,12 @@ export default {
   name: "navbar",
 };
 </script>
+
+<style scoped>
+
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+</style>

@@ -1,24 +1,24 @@
 <template>
   <div class="container">
+    <Button :movies="this.movies" />
+
     <div class="row">
       <div class="col-md-8">
-        <Button :movies="this.movies" />
-
-        <div v-for="movie in movies" :key="movie.id">
-          <Movie
-            :movie = "movie"
-            :title="movie.title"
-            :poster_path="movie.poster_path"
-            :vote_average="movie.vote_average"
-            :overview="movie.overview"
-            :release_date="movie.release_date"
-            :include_video="movie.include_video"
-          />
+        <div class="row">
+            <div class="col-md-6" v-for="movie in movies" :key="movie.id">
+              <Movie
+                :movie="movie"
+                :title="movie.title"
+                :poster_path="movie.poster_path"
+                :vote_average="movie.vote_average"
+                :overview="movie.overview"
+                :release_date="movie.release_date"
+              />
+            </div>
         </div>
       </div>
-      
-      <div class="col-md-4">
 
+      <div class="col-md-4">
         <h2>Trier par genre</h2>
         <button
           v-on:click="getMoviesByGenre(18)"
@@ -29,7 +29,7 @@
         >
           Action
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(12)"
           style="color: #41b883"
@@ -39,7 +39,7 @@
         >
           Aventure
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(16)"
           style="color: #41b883"
@@ -49,7 +49,7 @@
         >
           Animation
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(35)"
           style="color: #41b883"
@@ -59,7 +59,7 @@
         >
           Comédie
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(80)"
           style="color: #41b883"
@@ -69,7 +69,7 @@
         >
           Crime
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(99)"
           style="color: #41b883"
@@ -79,7 +79,7 @@
         >
           Documentaire
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(18)"
           style="color: #41b883"
@@ -89,7 +89,7 @@
         >
           Dramatique
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(10751)"
           style="color: #41b883"
@@ -99,7 +99,7 @@
         >
           Familliale
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(14)"
           style="color: #41b883"
@@ -109,7 +109,7 @@
         >
           Fantaisie
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(36)"
           style="color: #41b883"
@@ -119,7 +119,7 @@
         >
           Historique
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(27)"
           style="color: #41b883"
@@ -129,7 +129,7 @@
         >
           Horreur
         </button>
-        <br>
+        <br />
         <button
           v-on:click="getMoviesByGenre(10402)"
           style="color: #41b883"
@@ -139,7 +139,7 @@
         >
           Musique
         </button>
-        <br>
+        <br />
       </div>
     </div>
   </div>
